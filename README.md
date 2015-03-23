@@ -1,1 +1,15 @@
 # zt-domainchecker
+
+
+## Features:
+1. Choose to display or hide over a dozen domain extensions, ie: .com, .mobi, .net, .name, .info, etc.
+2. Enter a forwarding url on forum submission.
+
+## Backend Configuration 
+
+* Label: Get Domain 
+* Button: Search
+* Dropbox Label: Domain Types
+* Check All Text: Check All Domain Types
+* Result: Result 
+* Forward URL: index.php/result
