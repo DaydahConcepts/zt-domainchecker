@@ -1,5 +1,9 @@
 # zt-domainchecker
 
+This module provides two features
+
+1. Domain Checker (checks domain availabilty)
+2. Whois Detail (whois information for domains)
 
 ## Features:
 1. Choose to display or hide over a dozen domain extensions, ie: .com, .mobi, .net, .name, .info, etc.
