@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.0.0" client="site" method="upgrade">
     <name>MODULE_ZTDOMAINCHECKER</name>
-	<creationDate>March 23, 2015</creationDate>
+    <creationDate>March 23, 2015</creationDate>
     <author>ZooTemplate.Com</author>
     <authorEmail>support@zootemplate.com</authorEmail>
     <authorUrl>https://www.zootemplate.com</authorUrl>
@@ -16,9 +16,12 @@
     </languages>
 	
     <files>
-        <filename>mod_ztdomainchecker.xml</filename>
         <filename module="mod_ztdomainchecker">mod_ztdomainchecker.php</filename>
-        <filename>index.html</filename>       
+        <filename>mod_ztdomainchecker.xml</filename>       
+        <filename>helper.php</filename>        
+        <filename>index.html</filename>
+        <folder>libraries</folder>
+        <folder>tmpl</folder>
     </files>
 	
     <config>
