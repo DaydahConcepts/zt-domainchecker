@@ -1,0 +1,95 @@
+/* ==================== Add Google Font ================= */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/* ==================== Global Variable */
+
+@accentColor:         #ff3333;
+@textColor:           #000000;
+@linkColor:           #000000;
+@linkHoverColor:      #ff3333;
+
+@baseFontSize:        14px;
+@baseLineHeight:      20px;
+
+
+/* ==================== Style Default =================== */
+.zt-domain-wrap {
+  font-family: 'Lato', sans-serif;
+  font-size: @baseFontSize;
+  * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+  }
+  .search-label{
+    font-size: @baseFontSize + 5;
+    line-height: @baseLineHeight + 27px;
+  }
+  .search {
+    input[type="text"], input[type="password"], input[type="tel"], input[type="email"]{
+      height: 47px;
+      width: ~"calc(100% - 200px)";
+      border: 1px solid #e0e0e0;
+      border-radius: 0;
+      font-size: @baseFontSize - 1;
+      padding-left: 10px;
+      float: left;
+      box-shadow: none;
+    }
+    .btn-search{
+      width: 182px;
+      height: 47px;
+      text-align: center;
+      line-height: @baseLineHeight + 19px;
+      background-color: @accentColor;
+      background-image: none;
+      border: none;
+      border-radius: 0;
+      float: right;
+      text-shadow: none;
+      font-size: @baseFontSize;
+      color: #fff;
+      .fa{
+        font-size: @baseFontSize + 3;
+        padding-left: 10px;
+      }
+    }
+  }
+  #zt-domain-results{
+    display: none;
+    .zt-domain-results-title{
+      border-bottom: 1px solid #e0e0e0;
+      margin: 40px 0 38px;
+      padding-bottom: 30px;
+      span, .fa{
+        color: @accentColor;
+        cursor: pointer;
+      }
+    }
+    > ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li{
+        width: 10%;
+        .SCheckbox{
+          opacity: 0;
+          visibility: hidden;
+          width: 0;
+        }
+      }
+      .check{
+        &.checker{
+          .fa{
+            color: @accentColor;
+          }
+        }
+        cursor: pointer;
+        > *{
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

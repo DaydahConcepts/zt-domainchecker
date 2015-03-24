@@ -1,0 +1,84 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/* ==================== Add Google Font ================= */
+/* ==================== Global Variable */
+/* ==================== Style Default =================== */
+.zt-domain-wrap {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+.zt-domain-wrap * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.zt-domain-wrap .search-label {
+    font-size: 19px;
+    line-height: 47px;
+}
+.zt-domain-wrap .search input[type="text"],
+.zt-domain-wrap .search input[type="password"],
+.zt-domain-wrap .search input[type="tel"],
+.zt-domain-wrap .search input[type="email"] {
+    height: 47px;
+    width: calc(100% - 200px);
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    font-size: 13px;
+    padding-left: 10px;
+    float: left;
+    box-shadow: none;
+}
+.zt-domain-wrap .search .btn-search {
+    width: 182px;
+    height: 47px;
+    text-align: center;
+    line-height: 39px;
+    background-color: #ff3333;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    float: right;
+    text-shadow: none;
+    font-size: 14px;
+    color: #fff;
+}
+.zt-domain-wrap .search .btn-search .fa {
+    font-size: 17px;
+    padding-left: 10px;
+}
+.zt-domain-wrap #zt-domain-results {
+    display: none;
+}
+.zt-domain-wrap #zt-domain-results .zt-domain-results-title {
+    border-bottom: 1px solid #e0e0e0;
+    margin: 40px 0 38px;
+    padding-bottom: 30px;
+}
+.zt-domain-wrap #zt-domain-results .zt-domain-results-title span,
+.zt-domain-wrap #zt-domain-results .zt-domain-results-title .fa {
+    color: #ff3333;
+    cursor: pointer;
+}
+.zt-domain-wrap #zt-domain-results > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.zt-domain-wrap #zt-domain-results > ul li {
+    width: 10%;
+}
+.zt-domain-wrap #zt-domain-results > ul li .SCheckbox {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+}
+.zt-domain-wrap #zt-domain-results > ul .check {
+    cursor: pointer;
+}
+.zt-domain-wrap #zt-domain-results > ul .check.checker .fa {
+    color: #ff3333;
+}
+.zt-domain-wrap #zt-domain-results > ul .check > * {
+    display: inline-block;
+}
