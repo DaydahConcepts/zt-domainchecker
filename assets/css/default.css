@@ -12,6 +12,23 @@
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
 }
+.zt-domain-wrap a:hover {
+    text-decoration: none;
+}
+.zt-domain-wrap ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.zt-domain-wrap div.modal {
+    border-radius: 0;
+    width: 880px;
+    margin-left: -440px;
+}
+.zt-domain-wrap .modal-header {
+    background-color: #cccccc;
+    padding: 20px 15px;
+}
 .zt-domain-wrap .search-label {
     font-size: 19px;
     line-height: 47px;
@@ -47,38 +64,85 @@
     font-size: 17px;
     padding-left: 10px;
 }
-.zt-domain-wrap #zt-domain-results {
+.zt-domain-wrap #zt-domain-ext {
     display: none;
 }
-.zt-domain-wrap #zt-domain-results .zt-domain-results-title {
+.zt-domain-wrap #zt-domain-ext .zt-domain-ext-title {
     border-bottom: 1px solid #e0e0e0;
     margin: 40px 0 38px;
     padding-bottom: 30px;
 }
-.zt-domain-wrap #zt-domain-results .zt-domain-results-title span,
-.zt-domain-wrap #zt-domain-results .zt-domain-results-title .fa {
+.zt-domain-wrap #zt-domain-ext .zt-domain-ext-title span,
+.zt-domain-wrap #zt-domain-ext .zt-domain-ext-title .fa {
     color: #ff3333;
     cursor: pointer;
 }
-.zt-domain-wrap #zt-domain-results > ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.zt-domain-wrap #zt-domain-results > ul li {
+.zt-domain-wrap #zt-domain-ext > ul li {
+    margin-bottom: 19px;
     width: 10%;
 }
-.zt-domain-wrap #zt-domain-results > ul li .SCheckbox {
+.zt-domain-wrap #zt-domain-ext > ul li .SCheckbox {
     opacity: 0;
     visibility: hidden;
     width: 0;
 }
-.zt-domain-wrap #zt-domain-results > ul .check {
+.zt-domain-wrap #zt-domain-ext > ul .check {
+    color: #666666;
     cursor: pointer;
 }
-.zt-domain-wrap #zt-domain-results > ul .check.checker .fa {
+.zt-domain-wrap #zt-domain-ext > ul .check.checker .fa {
     color: #ff3333;
 }
-.zt-domain-wrap #zt-domain-results > ul .check > * {
+.zt-domain-wrap #zt-domain-ext > ul .check .fa {
+    width: 8px;
+}
+.zt-domain-wrap #zt-domain-ext > ul .check > * {
     display: inline-block;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-results-title {
+    text-align: center;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-results-title h2 {
+    font-size: 25px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.zt-domain-wrap .zt-domain-results li.zt-domain-item {
+    border-bottom: 1px dashed #cdcdcd;
+    padding: 10px 0;
+    line-height: 37px;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-name {
+    font-size: 15px;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-results-title {
+    margin: 8px 0 25px;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-available a {
+    background-color: #669900;
+    color: #fff;
+    text-transform: uppercase;
+    display: block;
+    width: 134px;
+    height: 39px;
+    line-height: 39px;
+    font-size: 15px;
+    padding: 0 22px;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-available a.not-available {
+    background-color: #e4e4e4;
+    color: #666666;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-available .fa {
+    font-size: 29px;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-price {
+    font-size: 18px;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-price .zt-whois {
+    color: #ff3333;
+    text-transform: uppercase;
+}
+.zt-domain-wrap .zt-domain-results .zt-domain-price .zt-whois .fa {
+    padding-right: 7px;
 }

@@ -22,6 +22,23 @@
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
   }
+  a:hover{
+    text-decoration: none;
+  }
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  div.modal{
+    border-radius: 0;
+    width: 880px;
+    margin-left: -440px;
+  }
+  .modal-header{
+    background-color: #cccccc;
+    padding: 20px 15px;
+  }
   .search-label{
     font-size: @baseFontSize + 5;
     line-height: @baseLineHeight + 27px;
@@ -56,9 +73,9 @@
       }
     }
   }
-  #zt-domain-results{
+  #zt-domain-ext{
     display: none;
-    .zt-domain-results-title{
+    .zt-domain-ext-title{
       border-bottom: 1px solid #e0e0e0;
       margin: 40px 0 38px;
       padding-bottom: 30px;
@@ -68,10 +85,8 @@
       }
     }
     > ul{
-      list-style: none;
-      margin: 0;
-      padding: 0;
       li{
+        margin-bottom: 19px;
         width: 10%;
         .SCheckbox{
           opacity: 0;
@@ -85,9 +100,64 @@
             color: @accentColor;
           }
         }
+        color: #666666;
         cursor: pointer;
+        .fa{
+          width: 8px;
+        }
         > *{
           display: inline-block;
+        }
+      }
+    }
+  }
+  .zt-domain-results{
+    .zt-domain-results-title{
+      text-align: center;
+      h2{
+        font-size: @baseFontSize + 11px;
+        font-weight: 300;
+        text-transform: uppercase;
+      }
+    }
+    li.zt-domain-item{
+      border-bottom: 1px dashed #cdcdcd;
+      padding: 10px 0;
+      line-height: @baseLineHeight + 17px;
+    }
+    .zt-domain-name{
+      font-size: @baseFontSize + 1;
+    }
+    .zt-domain-results-title{
+      margin: 8px 0 25px;
+    }
+    .zt-domain-available{
+      a{
+        background-color: #669900;
+        color: #fff;
+        text-transform: uppercase;
+        display: block;
+        width: 134px;
+        height: 39px;
+        line-height: 39px;
+        font-size: @baseFontSize + 1;
+        padding: 0 22px;
+        &.not-available{
+          background-color: #e4e4e4;
+          color: #666666;
+        }
+      }
+      .fa{
+        font-size: @baseFontSize + 15 ;
+      }
+    }
+    .zt-domain-price{
+      font-size: @baseFontSize + 4;
+      .zt-whois{
+        color: @accentColor;
+        text-transform: uppercase;
+        .fa{
+          padding-right: 7px;
         }
       }
     }
