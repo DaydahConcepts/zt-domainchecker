@@ -4,8 +4,25 @@ defined('_JEXEC') or die;
 $doc = JFactory::getDocument();
 $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/css/default.css');
 $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/font-awesome/css/font-awesome.min.css');
+/* Add Zo2 Javascript Framework normally */
+$script[] = '(function (w, $) {';
+$script[] = 'if (typeof w.zo2 === \'undefined\') {';
+$script[] = 'var _zo2 = {';
+$script[] = 'settings: {';
+$script[] = 'version: null,';
+$script[] = 'frontendUrl: "' . JUri::root() .'",';
+$script[] = 'backendUrl: "' . rtrim(JUri::root(), '/') . '/administrator' . '",';
+$script[] = 'token: "' . JSession::getFormToken() . '"';
+$script[] = '},';
+$script[] = 'jQuery: $';
+$script[] = '};';
+$script[] = 'w.zo2 = _zo2;';
+$script[] = '}';
+$script[] = '})(window, jQuery);';
+$doc->addScriptDeclaration(implode(PHP_EOL, $script));
 ?>
-
+<script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/zo2.ajax.js"></script>
+<script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/ztdomainchecker.js"></script>
 <div class="zt-domain-wrap">
 <div class="row-fluid">
     <label class="search-label span2">GET DOMAIN: </label>
@@ -328,68 +345,3 @@ $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/font-awesome/css/font-aw
     </div>
 </div>
 </div>
-<script type="text/javascript">
-    function whois(domain) {
-        jQuery.ajax({
-            url: "<?php echo JUri::root(); ?>",
-            dataType: "json",
-            data: {
-                domain: domain,
-                option: 'com_ajax',
-                module: 'ztdomainchecker',
-                method: "whois",
-                format: 'json'
-            }
-        }).done(function (data) {
-
-            jQuery('#zt-domain-ext ul').append(data.data.html);
-        })
-    }
-
-    function checkDomains() {
-        var value = jQuery('input.domain').val();
-        jQuery.ajax({
-            url: "<?php echo JUri::root(); ?>",
-            dataType: "json",
-            data: {
-                domain: value,
-                option: 'com_ajax',
-                module: 'ztdomainchecker',
-                format: 'json'
-            }
-        }).done(function (respond) {
-            jQuery(respond.data).each(function (index, value) {
-                whois(value);
-            });
-        })
-    }
-
-    jQuery(document).ready(function () {
-
-        var domainResults = jQuery('#zt-domain-ext'),
-            checkResults = jQuery('.check');
-
-        //Focus Input Search Domain
-        jQuery('#domain-name').focus(function () {
-            jQuery(domainResults).slideDown();
-        });
-
-        //Close Results
-        jQuery('.close-results').click(function () {
-            jQuery(domainResults).slideUp();
-        });
-
-        //Check Results
-        jQuery(checkResults).click(function () {
-            if (jQuery(this).hasClass('checker')) {
-                jQuery(this).removeClass('checker');
-                jQuery(this).find('.fa').removeClass('fa-check-square-o').addClass('fa-square-o');
-                jQuery(this).find('input').attr("checked", false);
-            } else {
-                jQuery(this).addClass('checker');
-                jQuery(this).find('.fa').removeClass('fa-square-o').addClass('fa-check-square-o');
-                jQuery(this).find('input').attr("checked", true);
-            }
-        });
-    });
-</script>
