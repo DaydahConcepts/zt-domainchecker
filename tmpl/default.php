@@ -23,12 +23,12 @@ $doc->addScriptDeclaration(implode(PHP_EOL, $script));
 ?>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/zo2.ajax.js"></script>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/ztdomainchecker.js"></script>
-<div class="zt-domain-wrap">
+<div class="zt-domain-wrap" id="zt-domain-wrapper">
 <div class="row-fluid">
     <label class="search-label span2">GET DOMAIN: </label>
 
     <div class="search span10">
-        <input type="text" id="domain-name" class="form-control" maxlength="64" placeholder="Search"/>
+        <input type="text" id="zt-domain-name" class="form-control" maxlength="64" placeholder="Search"/>
         <button type="submit" class="btn btn-search" onClick="checkDomains('');">CHECK DOMAIN <i
                 class="fa fa-angle-right"></i></button>
     </div>
@@ -57,7 +57,14 @@ $doc->addScriptDeclaration(implode(PHP_EOL, $script));
 <li class="pull-left">
                 <span class="check">
                     <i class="fa-square-o fa"></i>
-                    <input type="checkbox" name="check-domain" id="dot_info" value="org" class="SCheckbox">
+                    <input type="checkbox" name="check-domain" id="dot_org" value="org" class="SCheckbox">
+                    <label for="dot_org">.org</label>
+                </span>
+</li>
+<li class="pull-left">
+                <span class="check">
+                    <i class="fa-square-o fa"></i>
+                    <input type="checkbox" name="check-domain" id="dot_info" value="info" class="SCheckbox">
                     <label for="dot_info">.info</label>
                 </span>
 </li>

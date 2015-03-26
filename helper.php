@@ -14,10 +14,8 @@ if (!class_exists('ModZtdomaincheckerHelper'))
 
         public static function getAjax()
         {
-            $validExtensions = array(
-                'com', 'net', 'us'
-            );
             $domain = JFactory::getApplication()->input->get('domain');
+            $validExtensions = JFactory::getApplication()->input->get('ext', array('com'), 'ARRAY');
             $parts = explode('.', $domain);
             $keyword = array_shift($parts);
             $extension = implode('.', $parts);
@@ -33,8 +31,16 @@ if (!class_exists('ModZtdomaincheckerHelper'))
             {
                 $domains[] = $keyword . '.' . $extension;
             }
-
-            return $domains;
+            foreach($domains as $domainName){
+                $html[] = '<li class="zt-domain-item" data-domain="' . $domainName . '">';
+                $html[] = '<div class="row-fluid">';
+                $html[] = '<div class="span8 zt-domain-name">' . $domainName . '</div>';
+                $html[] = '<div class="span2 zt-domain-price">$30/years</div>';
+                $html[] = '<div class="span2 zt-domain-available"><i class="fa fa-spinner fa-spin"></i></div>';
+                $html[] = '</div>';
+                $html[] = '</li>';
+            }
+            return array('domain' => $domains, 'html' => implode(PHP_EOL, $html));
         }
 
         public static function whoisAjax()
@@ -53,12 +59,10 @@ if (!class_exists('ModZtdomaincheckerHelper'))
 
             if ($deep == false)
             {
-                if ($data['regrinfo']['registered'] == 'yes')
-                {
-                    $parsed['html'] = '<li data-domain="' . $domain . '">' . $domain . ' Yes ' . '</li>';
-                } else
-                {
-                    $parsed['html'] = '<li data-domain="' . $domain . '">' . $domain . ' No ' . '</li>';
+                $parsed['domain'] = $domain;
+                $parsed['available'] = !($data['regrinfo']['registered'] == 'yes');
+                if($data['regrinfo']['registered'] == 'yes'){
+                    $parsed['whois'] = implode('<br/>',$data['rawdata']);
                 }
                 return $parsed;
             }
