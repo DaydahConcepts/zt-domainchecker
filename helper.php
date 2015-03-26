@@ -31,11 +31,12 @@ if (!class_exists('ModZtdomaincheckerHelper'))
             {
                 $domains[] = $keyword . '.' . $extension;
             }
-            foreach($domains as $domainName){
+            foreach ($domains as $domainName)
+            {
                 $html[] = '<li class="zt-domain-item" data-domain="' . $domainName . '">';
                 $html[] = '<div class="row-fluid">';
                 $html[] = '<div class="span8 zt-domain-name">' . $domainName . '</div>';
-                $html[] = '<div class="span2 zt-domain-price">$30/years</div>';
+                $html[] = '<div class="span2 zt-domain-price">Checking...</div>';
                 $html[] = '<div class="span2 zt-domain-available"><i class="fa fa-spinner fa-spin"></i></div>';
                 $html[] = '</div>';
                 $html[] = '</li>';
@@ -47,7 +48,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
         {
             $domain = JFactory::getApplication()->input->get('domain');
             $deep = JFactory::getApplication()->input->get('deep', false);
-            
+
             $whois = new Whois();
             $whois->deepWhois = $deep;
 
@@ -61,9 +62,27 @@ if (!class_exists('ModZtdomaincheckerHelper'))
             {
                 $parsed['domain'] = $domain;
                 $parsed['available'] = !($data['regrinfo']['registered'] == 'yes');
-                if($data['regrinfo']['registered'] == 'yes'){
-                    $parsed['whois'] = implode('<br/>',$data['rawdata']);
+                if ($data['regrinfo']['registered'] == 'yes')
+                {
+                    $html[] = '<li class="zt-domain-item">';
+                    $html[] = '<div class="row-fluid">';
+                    $html[] = '<div class="span8 zt-domain-name">' . $domain . '</div>';
+                    $html[] = '<div class="span2 zt-domain-price"><a href="#myModal" onclick="zo2.domain.loadWhois(\'' . base64_encode(implode('<br/>', $data['rawdata'])) . '\');" role="button" class="zt-whois"';
+                    $html[] = 'data-toggle="modal"><i class="fa-eye fa"></i>Whois</a></div>';
+                    $html[] = '<div class="span2 zt-domain-available"><a href="#" onclick="return false;" class="not-available">taken</a></div>';
+                    $html[] = '</div>';
+                    $html[] = '</li>';
+                } else
+                {
+                    $html[] = '<li class="zt-domain-item">';
+                    $html[] = '<div class="row-fluid">';
+                    $html[] = '<div class="span8 zt-domain-name">' . $domain . '</div>';
+                    $html[] = '<div class="span2 zt-domain-price">$30/years</div>';
+                    $html[] = '<div class="span2 zt-domain-available"><a href="#">available</a></div>';
+                    $html[] = '</div>';
+                    $html[] = '</li>';
                 }
+                $parsed['html'] = implode(PHP_EOL, $html);
                 return $parsed;
             }
         }
