@@ -33,6 +33,8 @@
                 <field name="result" type="text" default="Result" label="Result" description="" size="10" />
                 <field name="forward_url" type="text" default="index.php/result" label="Forward URL" description="" size="10" />
                 <field name="ltd" type="textarea" default="com:10 USD;net:10 USD" label="Ltd" description="" rows="10" cols="5" />
+                <field name="take" type="text" default="[Taken]" label="Taken" description="" size="10" />
+                <field name="available" type="text" default="[Available]" label="Available" description="" size="10" />
             </fieldset>
         </fiels>
     </config>
