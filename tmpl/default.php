@@ -33,7 +33,7 @@ $script[] = '}';
 $script[] = '})(window, jQuery);';
 $doc->addScriptDeclaration(implode(PHP_EOL, $script));
 
-$ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd'));
+$ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd', 'com:9$:checked;net:8$:checked;org:8$:checked;us:8$:checked;biz:8$;'));
 ?>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/zo2.ajax.js"></script>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/ztdomainchecker.js"></script>
@@ -56,14 +56,14 @@ $ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd'));
         <ul class="clearfix">
             <?php foreach($ltds as $listExt) { ?>
                 <li class="pull-left">
-                <span class="check<?php echo (isset($listExt[2]) && $listExt[2] == 1) ? ' checker' : ''; ?>">
-                    <?php if(isset($listExt[2]) && $listExt[2] == 1) { ?>
+                <span class="check<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? ' checker' : ''; ?>">
+                    <?php if(isset($listExt->checked) && $listExt->checked == 1) { ?>
                         <i class="fa fa-check-square-o"></i>
                     <?php } else { ?>
                         <i class="fa-square-o fa"></i>
                     <?php } ?>
-                    <input type="checkbox" name="check-domain" id="dot_com" value="com" class="SCheckbox"<?php echo (isset($listExt[2]) && $listExt[2] == 1) ? 'checked="checked"' : ''; ?>>
-                    <label for="dot_com">.<?php echo $listExt[0]; ?></label>
+                    <input type="checkbox" name="check-domain" id="dot_<?php echo $listExt->name; ?>" value="<?php echo $listExt->name; ?>" class="SCheckbox"<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? 'checked="checked"' : ''; ?>>
+                    <label for="dot_<?php echo $listExt->name; ?>">.<?php echo $listExt->name; ?></label>
                 </span>
                 </li>
             <?php } ?>
