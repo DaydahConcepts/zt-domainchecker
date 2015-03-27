@@ -62,8 +62,8 @@ $ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd', 'com:9$:checked;ne
                     <?php } else { ?>
                         <i class="fa-square-o fa"></i>
                     <?php } ?>
-                    <input type="checkbox" name="check-domain" id="dot_com" value="com" class="SCheckbox"<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? 'checked="checked"' : ''; ?>>
-                    <label for="dot_com">.<?php echo $listExt->name; ?></label>
+                    <input type="checkbox" name="check-domain" id="dot_<?php echo $listExt->name; ?>" value="<?php echo $listExt->name; ?>" class="SCheckbox"<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? 'checked="checked"' : ''; ?>>
+                    <label for="dot_<?php echo $listExt->name; ?>">.<?php echo $listExt->name; ?></label>
                 </span>
                 </li>
             <?php } ?>
