@@ -4,15 +4,32 @@ defined('_JEXEC') or die;
 $doc = JFactory::getDocument();
 $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/css/default.css');
 $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/font-awesome/css/font-awesome.min.css');
+/* Add Zo2 Javascript Framework normally */
+$script[] = '(function (w, $) {';
+$script[] = 'if (typeof w.zo2 === \'undefined\') {';
+$script[] = 'var _zo2 = {';
+$script[] = 'settings: {';
+$script[] = 'version: null,';
+$script[] = 'frontendUrl: "' . JUri::root() .'",';
+$script[] = 'backendUrl: "' . rtrim(JUri::root(), '/') . '/administrator' . '",';
+$script[] = 'token: "' . JSession::getFormToken() . '"';
+$script[] = '},';
+$script[] = 'jQuery: $';
+$script[] = '};';
+$script[] = 'w.zo2 = _zo2;';
+$script[] = '}';
+$script[] = '})(window, jQuery);';
+$doc->addScriptDeclaration(implode(PHP_EOL, $script));
 ?>
-
-<div class="zt-domain-wrap">
+<script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/zo2.ajax.js"></script>
+<script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/ztdomainchecker.js"></script>
+<div class="zt-domain-wrap" id="zt-domain-wrapper">
 <div class="row-fluid">
     <label class="search-label span2">GET DOMAIN: </label>
 
     <div class="search span10">
-        <input type="text" id="domain-name" class="form-control" maxlength="64" placeholder="Search"/>
-        <button type="submit" class="btn btn-search" onClick="checkDomains('');">CHECK DOMAIN <i
+        <input type="text" id="zt-domain-name" class="form-control" maxlength="64" placeholder="Search"/>
+        <button type="submit" class="btn btn-search" onClick="zo2.domain.check();">CHECK DOMAIN <i
                 class="fa fa-angle-right"></i></button>
     </div>
 </div>
@@ -40,7 +57,14 @@ $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/font-awesome/css/font-aw
 <li class="pull-left">
                 <span class="check">
                     <i class="fa-square-o fa"></i>
-                    <input type="checkbox" name="check-domain" id="dot_info" value="org" class="SCheckbox">
+                    <input type="checkbox" name="check-domain" id="dot_org" value="org" class="SCheckbox">
+                    <label for="dot_org">.org</label>
+                </span>
+</li>
+<li class="pull-left">
+                <span class="check">
+                    <i class="fa-square-o fa"></i>
+                    <input type="checkbox" name="check-domain" id="dot_info" value="info" class="SCheckbox">
                     <label for="dot_info">.info</label>
                 </span>
 </li>
@@ -240,156 +264,16 @@ $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/font-awesome/css/font-aw
         <h2 class="close-results">Results check domain</h2>
     </div>
     <div class="zt-domain-list-results">
-        <ul>
-            <li class="zt-domain-item">
-                <div class="row-fluid">
-                    <div class="span8 zt-domain-name">zootemplate.com</div>
-                    <div class="span2 zt-domain-price"><a href="#myModal" role="button" class="zt-whois"
-                                                          data-toggle="modal"><i class="fa-eye fa"></i>Whois</a></div>
-                    <div class="span2 zt-domain-available"><a href="#" class="not-available">taken</a></div>
-                </div>
-            </li>
-            <li class="zt-domain-item">
-                <div class="row-fluid">
-                    <div class="span8 zt-domain-name">zootemplate.com</div>
-                    <div class="span2 zt-domain-price">$30/years</div>
-                    <div class="span2 zt-domain-available"><a href="#">available</a></div>
-                </div>
-            </li>
-            <li class="zt-domain-item">
-                <div class="row-fluid">
-                    <div class="span8 zt-domain-name">zootemplate.com</div>
-                    <div class="span2 zt-domain-price">$30/years</div>
-                    <div class="span2 zt-domain-available"><i class="fa fa-spinner fa-spin"></i></div>
-                </div>
-            </li>
-        </ul>
+        <ul></ul>
     </div>
-
-    <!-- Moda -->
-
-    <!-- Modal -->
+    <!-- Whois Modal -->
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">Modal header</h3>
         </div>
-        <div class="modal-body">
-            Whois Server Version 2.0<br><br>Domain names in the .com and .net domains can now be registered<br>with many
-            different competing registrars. Go to http://www.internic.net<br>for detailed information.<br><br>Domain
-            Name: ZOOTEMPLATE.COM<br>Registrar: GODADDY.COM, LLC<br>Sponsoring Registrar IANA ID: 146<br>Whois Server:
-            whois.godaddy.com<br>Referral URL: http://registrar.godaddy.com<br>Name Server: NS55.DOMAINCONTROL.COM<br>Name
-            Server: NS56.DOMAINCONTROL.COM<br>Status: clientDeleteProhibited
-            http://www.icann.org/epp#clientDeleteProhibited<br>Status: clientRenewProhibited
-            http://www.icann.org/epp#clientRenewProhibited<br>Status: clientTransferProhibited
-            http://www.icann.org/epp#clientTransferProhibited<br>Status: clientUpdateProhibited
-            http://www.icann.org/epp#clientUpdateProhibited<br>Updated Date: 25-oct-2014<br>Creation Date:
-            17-dec-2010<br>Expiration Date: 17-dec-2016<br><br>&gt;&gt;&gt; Last update of whois database: Wed, 25 Mar
-            2015 02:39:13 GMT &lt;&lt;&lt;<br><br>NOTICE: The expiration date displayed in this record is the date
-            the<br>registrar's sponsorship of the domain name registration in the registry is<br>currently set to
-            expire. This date does not necessarily reflect the expiration<br>date of the domain name registrant's
-            agreement with the sponsoring<br>registrar. Users may consult the sponsoring registrar's Whois database
-            to<br>view the registrar's reported date of expiration for this registration.<br><br>TERMS OF USE: You are
-            not authorized to access or query our Whois<br>database through the use of electronic processes that are
-            high-volume and<br>automated except as reasonably necessary to register domain names or<br>modify existing
-            registrations; the Data in VeriSign Global Registry<br>Services' ("VeriSign") Whois database is provided by
-            VeriSign for<br>information purposes only, and to assist persons in obtaining information<br>about or
-            related to a domain name registration record. VeriSign does not<br>guarantee its accuracy. By submitting a
-            Whois query, you agree to abide<br>by the following terms of use: You agree that you may use this Data
-            only<br>for lawful purposes and that under no circumstances will you use this Data<br>to: (1) allow, enable,
-            or otherwise support the transmission of mass<br>unsolicited, commercial advertising or solicitations via
-            e-mail, telephone,<br>or facsimile; or (2) enable high volume, automated, electronic processes<br>that apply
-            to VeriSign (or its computer systems). The compilation,<br>repackaging, dissemination or other use of this
-            Data is expressly<br>prohibited without the prior written consent of VeriSign. You agree not to<br>use
-            electronic processes that are automated and high-volume to access or<br>query the Whois database except as
-            reasonably necessary to register<br>domain names or modify existing registrations. VeriSign reserves the
-            right<br>to restrict your access to the Whois database in its sole discretion to ensure<br>operational
-            stability. VeriSign may restrict or terminate your access to the<br>Whois database for failure to abide by
-            these terms of use. VeriSign<br>reserves the right to modify these terms at any time.<br><br>The Registry
-            database contains ONLY .COM, .NET, .EDU domains and<br>Registrars.<br><br>For more information on Whois
-            status codes, please visit<br>https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en.<br>Domain
-            Name: ZOOTEMPLATE.COM<br>Registrar URL: http://www.godaddy.com<br>Registrant Name: Registration Private<br>Registrant
-            Organization: Domains By Proxy, LLC<br>Name Server: NS55.DOMAINCONTROL.COM<br>Name Server:
-            NS56.DOMAINCONTROL.COM<br>DNSSEC: unsigned<br><br>For complete domain details go to:<br>http://who.godaddy.com/whoischeck.aspx?domain=ZOOTEMPLATE.COM<br><br>The
-            data contained in GoDaddy.com, LLC's WhoIs database,<br>while believed by the company to be reliable, is
-            provided "as is"<br>with no guarantee or warranties regarding its accuracy. This<br>information is provided
-            for the sole purpose of assisting you<br>in obtaining information about domain name registration
-            records.<br>Any use of this data for any other purpose is expressly forbidden without the prior written<br>permission
-            of GoDaddy.com, LLC. By submitting an inquiry,<br>you agree to these terms of usage and limitations of
-            warranty. In particular,<br>you agree not to use this data to allow, enable, or otherwise make possible,<br>dissemination
-            or collection of this data, in part or in its entirety, for any<br>purpose, such as the transmission of
-            unsolicited advertising and<br>and solicitations of any kind, including spam. You further agree<br>not to
-            use this data to enable high volume, automated or robotic electronic<br>processes designed to collect or
-            compile this data for any purpose,<br>including mining this data for your own personal or commercial
-            purposes.<br><br>Please note: the registrant of the domain name is specified<br>in the "registrant" section.
-            In most cases, GoDaddy.com, LLC<br>is not the registrant of domain names listed in this database.<br>
-        </div>
+        <div class="modal-body"></div>
     </div>
 </div>
 </div>
-<script type="text/javascript">
-    function whois(domain) {
-        jQuery.ajax({
-            url: "<?php echo JUri::root(); ?>",
-            dataType: "json",
-            data: {
-                domain: domain,
-                option: 'com_ajax',
-                module: 'ztdomainchecker',
-                method: "whois",
-                format: 'json'
-            }
-        }).done(function (data) {
-
-            jQuery('#zt-domain-ext ul').append(data.data.html);
-        })
-    }
-
-    function checkDomains() {
-        var value = jQuery('input.domain').val();
-        jQuery.ajax({
-            url: "<?php echo JUri::root(); ?>",
-            dataType: "json",
-            data: {
-                domain: value,
-                option: 'com_ajax',
-                module: 'ztdomainchecker',
-                format: 'json'
-            }
-        }).done(function (respond) {
-            jQuery(respond.data).each(function (index, value) {
-                whois(value);
-            });
-        })
-    }
-
-    jQuery(document).ready(function () {
-
-        var domainResults = jQuery('#zt-domain-ext'),
-            checkResults = jQuery('.check');
-
-        //Focus Input Search Domain
-        jQuery('#domain-name').focus(function () {
-            jQuery(domainResults).slideDown();
-        });
-
-        //Close Results
-        jQuery('.close-results').click(function () {
-            jQuery(domainResults).slideUp();
-        });
-
-        //Check Results
-        jQuery(checkResults).click(function () {
-            if (jQuery(this).hasClass('checker')) {
-                jQuery(this).removeClass('checker');
-                jQuery(this).find('.fa').removeClass('fa-check-square-o').addClass('fa-square-o');
-                jQuery(this).find('input').attr("checked", false);
-            } else {
-                jQuery(this).addClass('checker');
-                jQuery(this).find('.fa').removeClass('fa-square-o').addClass('fa-check-square-o');
-                jQuery(this).find('input').attr("checked", true);
-            }
-        });
-    });
-</script>
