@@ -32,6 +32,8 @@ $script[] = 'w.zo2 = _zo2;';
 $script[] = '}';
 $script[] = '})(window, jQuery);';
 $doc->addScriptDeclaration(implode(PHP_EOL, $script));
+
+$ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd'));
 ?>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/zo2.ajax.js"></script>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/ztdomainchecker.js"></script>

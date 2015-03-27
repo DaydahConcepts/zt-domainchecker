@@ -14,4 +14,5 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
+require_once __DIR__ . '/helper.php';
 require JModuleHelper::getLayoutPath('mod_ztdomainchecker', $params->get('layout', 'default'));

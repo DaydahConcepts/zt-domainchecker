@@ -101,6 +101,23 @@ if (!class_exists('ModZtdomaincheckerHelper'))
             }
         }
 
+        public static function getLtds($ltds)
+        {
+            $extensions = explode(';', $ltds);
+            foreach ($extensions as $extension)
+            {
+                $parts = explode(':', $extension);
+                if (isset($parts[2]) && $parts[2] == 'checked')
+                {
+                    $list[] = array($parts[0], $parts[1], true);
+                } else
+                {
+                    $list[] = array($parts[0], $parts[1], false);
+                }
+            }
+            return $list;
+        }
+
     }
 
 }
