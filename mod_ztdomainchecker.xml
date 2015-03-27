@@ -25,6 +25,16 @@
     </files>
 	
     <config>
+        <fiels name="params">
+            <fieldset name="basic">
+                <field name="label" type="text" default="Get Domain" label="Label" description="" size="10" />
+                <field name="button" type="text" default="Search" label="Button" description="" size="10" />
+                <field name="check_all_text" type="text" default="Check All Domain Types" label="Check All Text" description="" size="10" />
+                <field name="result" type="text" default="Result" label="Result" description="" size="10" />
+                <field name="forward_url" type="text" default="index.php/result" label="Forward URL" description="" size="10" />
+                <field name="ltd" type="textarea" default="com:10 USD;net:10 USD" label="Ltd" description="" rows="10" cols="5" />
+            </fieldset>
+        </fiels>
     </config>
 	
 </extension>
