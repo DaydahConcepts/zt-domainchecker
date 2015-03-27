@@ -107,20 +107,23 @@ if (!class_exists('ModZtdomaincheckerHelper'))
             foreach ($extensions as $extension)
             {
                 $parts = explode(':', $extension);
-                if (isset($parts[2]) && $parts[2] == 'checked')
+                if (count($parts) >= 2)
                 {
-                    $item = new JObject();
-                    $item->name = $parts[0];
-                    $item->price = $parts[1];
-                    $item->checked = true;
-                } else
-                {
-                    $item = new JObject();
-                    $item->name = $parts[0];
-                    $item->price = $parts[1];
-                    $item->checked = false;
+                    if (isset($parts[2]) && $parts[2] == 'checked')
+                    {
+                        $item = new JObject();
+                        $item->name = $parts[0];
+                        $item->price = $parts[1];
+                        $item->checked = true;
+                    } else
+                    {
+                        $item = new JObject();
+                        $item->name = $parts[0];
+                        $item->price = $parts[1];
+                        $item->checked = false;
+                    }
+                    $list[] = $item;
                 }
-                $list[] = $item;
             }
             return $list;
         }
