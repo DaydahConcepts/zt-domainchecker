@@ -38,14 +38,14 @@
                     $(this).find('input').attr("checked", true);
                 }
             });
-            $extCheckers.each(function () {
-                var $checkbox = $(this).find('input[type="checkbox"]');
-                if (defaultDomainExt.indexOf($checkbox.val()) >= 0) {
-                    $(this).addClass('checker');
-                    $(this).find('.fa').removeClass('fa-square-o').addClass('fa-check-square-o');
-                    $(this).find('input').attr("checked", true);
-                }
-            });
+            //$extCheckers.each(function () {
+            //    var $checkbox = $(this).find('input[type="checkbox"]');
+            //    if (defaultDomainExt.indexOf($checkbox.val()) >= 0) {
+            //        $(this).addClass('checker');
+            //        $(this).find('.fa').removeClass('fa-square-o').addClass('fa-check-square-o');
+            //        $(this).find('input').attr("checked", true);
+            //    }
+            //});
         },
         /**
          * Get ext list

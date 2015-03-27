@@ -9,28 +9,30 @@
     <license>http://www.gnu.org/licenses/gpl-2.0.html GPLv2 or later</license>
     <version>1.0.0</version>
     <description>MODULE_ZT_DOMAINCHECKER_DESCRIPTION</description>
-    
+
     <languages folder="language">
         <language tag="en-GB">en-GB/en-GB.mod_ztdomainchecker.ini</language>
-        <language tag="en-GB">en-GB/en-GB.mod_ztdomainchecker.sys.ini</language>		
+        <language tag="en-GB">en-GB/en-GB.mod_ztdomainchecker.sys.ini</language>
     </languages>
-	
+
     <files>
         <filename module="mod_ztdomainchecker">mod_ztdomainchecker.php</filename>
-        <filename>mod_ztdomainchecker.xml</filename>       
-        <filename>helper.php</filename>        
+        <filename>mod_ztdomainchecker.xml</filename>
+        <filename>helper.php</filename>
         <filename>index.html</filename>
         <folder>libraries</folder>
         <folder>tmpl</folder>
     </files>
-	
+
     <config>
         <fields name="params">
             <fieldset name="basic">
                 <field name="label" type="text" default="Get Domain" label="Label" description="" size="10" />
                 <field name="button" type="text" default="Search" label="Button" description="" size="10" />
                 <field name="check_all_text" type="text" default="Check All Domain Types" label="Check All Text" description="" size="10" />
+                <field name="such_as" type="textarea" default="(Such As: yourdomain.com, yourdomain.org, etc)" label="Such As" description="" filter="raw" />
                 <field name="result" type="text" default="Result" label="Result" description="" size="10" />
+                <field name="modal_title" type="text" default="Modal Header" label="Modal Header" description="" size="10" />
                 <field name="forward_url" type="text" default="index.php/result" label="Forward URL" description="" size="10" />
                 <field name="ltd" type="textarea" default="com:10 USD;net:10 USD" label="Ltd" description="" filter="raw" />
                 <field name="take" type="text" default="Taken" label="Taken" description="" size="10" />
@@ -38,5 +40,5 @@
             </fieldset>
         </fields>
     </config>
-	
+
 </extension>
