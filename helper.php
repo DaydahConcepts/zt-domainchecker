@@ -37,7 +37,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
         public static function getAjax()
         {
             $domain = strtolower(JFactory::getApplication()->input->get('domain'));
-            $validExtensions = JFactory::getApplication()->input->get('ext', array('com'), 'ARRAY');
+            $validExtensions = JFactory::getApplication()->input->get('ext', array('com', 'net', 'org'), 'ARRAY');
             $parts = explode('.', $domain);
             $keyword = array_shift($parts);
             $extension = implode('.', $parts);

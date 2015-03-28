@@ -42,7 +42,7 @@ $ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd', 'com:9$:checked;ne
         <label class="search-label span2"><?php echo $params->get('label'); ?></label>
 
         <div class="search span10">
-            <input type="text" id="zt-domain-name" class="form-control" maxlength="64" placeholder="Search"/>
+            <input type="text" id="zt-domain-name" class="form-control" maxlength="64" placeholder="Please type your domain here. Ex. hellworld.com"/>
             <button type="submit" class="btn btn-search" onClick="zo2.domain.check();"><?php echo $params->get('button'); ?> <i
                     class="fa fa-angle-right"></i></button>
         </div>
