@@ -68,7 +68,7 @@ $ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd', 'com:9$:checked;ne
             <?php } ?>
         </ul>
     </div>
-    <div class="zt-domain-results">
+    <div class="zt-domain-results" style="display:none;">
         <div class="zt-domain-results-title clearfix">
             <h2 class="close-results"><?php echo $params->get('result'); ?></h2>
         </div>

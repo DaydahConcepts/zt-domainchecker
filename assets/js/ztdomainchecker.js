@@ -17,7 +17,8 @@
             wrapper: "#zt-domain-wrapper",
             search: "#zt-domain-name",
             result: ".zt-domain-list-results",
-            ext: "#zt-domain-ext"
+            ext: "#zt-domain-ext",
+            resultWrapper: '.zt-domain-results'
         },
         /**
          * Init function
@@ -98,6 +99,7 @@
             if (value.length < 3) {
                 return false;
             }
+            $(_self._elements.resultWrapper).slideDown();
             $.ajax({
                 url: z.settings.frontendUrl,
                 dataType: "json",
