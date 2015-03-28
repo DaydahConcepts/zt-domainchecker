@@ -19,15 +19,19 @@
             result: ".zt-domain-list-results",
             ext: "#zt-domain-ext"
         },
+        /**
+         * Init function
+         * @returns {undefined}
+         */
         _init: function () {
             var _self = this;
             var $extList = $(this._elements.ext);
             var $extCheckers = $extList.find('span.check');
-            
+
             $(this._elements.search).focus(function () {
                 $extList.slideDown();
             });
-            
+
             $(this._elements.search).on('keyup', function () {
                 if ($(this).val().length >= 3 || $(this).val() === '') {
                     $(_self._elements.search).css('border', '1px solid #d9d9d9');
@@ -39,15 +43,35 @@
             //Check Results
             $extCheckers.click(function () {
                 if ($(this).hasClass('checker')) {
-                    $(this).removeClass('checker');
-                    $(this).find('.fa').removeClass('fa-check-square-o').addClass('fa-square-o');
-                    $(this).find('input').attr("checked", false);
+                    _self._checkBoxUncheck($(this));
                 } else {
-                    $(this).addClass('checker');
-                    $(this).find('.fa').removeClass('fa-square-o').addClass('fa-check-square-o');
-                    $(this).find('input').attr("checked", true);
+                    _self._checkBoxCheck($(this));
                 }
             });
+        },
+        /**
+         * Checkbox check
+         * @param {type} $checkBox
+         * @returns {undefined}
+         */
+        _checkBoxCheck: function ($checkBox) {
+            if (!$checkBox.hasClass('checker')) {
+                $checkBox.addClass('checker');
+                $checkBox.find('.fa').removeClass('fa-square-o').addClass('fa-check-square-o');
+                $checkBox.find('input').attr("checked", true);
+            }
+        },
+        /**
+         * Checkbox uncheck
+         * @param {type} $checkBox
+         * @returns {undefined}
+         */
+        _checkBoxUncheck: function ($checkBox) {
+            if ($checkBox.hasClass('checker')) {
+                $checkBox.removeClass('checker');
+                $checkBox.find('.fa').removeClass('fa-check-square-o').addClass('fa-square-o');
+                $checkBox.find('input').attr("checked", false);
+            }
         },
         /**
          * Get ext list
@@ -63,6 +87,10 @@
             });
             return retVal;
         },
+        /**
+         * Check domain ajax
+         * @returns {Boolean}
+         */
         check: function () {
             var _self = this;
             var domainExt = this._getCheckArray();
@@ -94,6 +122,33 @@
                 $(_self._elements.ext).slideUp();
             });
         },
+        /**
+         * Check all checkbox
+         * @returns {undefined}
+         */
+        checkAll: function () {
+            var _self = this;
+            var $extCheckers = $(this._elements.ext).find('span.check').find('input[type="checkbox"]');
+            $extCheckers.each(function () {
+                _self._checkBoxCheck($(this).closest('span'));
+            });
+        },
+        /**
+         * Uncheck all checkbox
+         * @returns {undefined}
+         */
+        uncheckAll: function () {
+            var _self = this;
+            var $extCheckers = $(this._elements.ext).find('span.check').find('input[type="checkbox"]');
+            $extCheckers.each(function () {
+                _self._checkBoxUncheck($(this).closest('span'));
+            });
+        },
+        /**
+         * Whois ajax
+         * @param {type} domain
+         * @returns {undefined}
+         */
         whois: function (domain) {
             var _self = this;
             $.ajax({
@@ -114,6 +169,11 @@
                 });
             });
         },
+        /**
+         * Load each whois field
+         * @param {type} whoisData
+         * @returns {undefined}
+         */
         loadWhois: function (whoisData) {
             $(this._elements.wrapper).find('#myModal').find('.modal-body').html(atob(whoisData));
         }
