@@ -20,12 +20,22 @@
             ext: "#zt-domain-ext"
         },
         _init: function () {
-            var defaultDomainExt = ["com", "net", "org"];
-            var $extList = $(this._elements.ext),
-                    $extCheckers = $extList.find('span.check');
+            var _self = this;
+            var $extList = $(this._elements.ext);
+            var $extCheckers = $extList.find('span.check');
+            
             $(this._elements.search).focus(function () {
                 $extList.slideDown();
             });
+            
+            $(this._elements.search).on('keyup', function () {
+                if ($(this).val().length >= 3 || $(this).val() === '') {
+                    $(_self._elements.search).css('border', '1px solid #d9d9d9');
+                } else {
+                    $(_self._elements.search).css('border', '1px solid red');
+                }
+            });
+
             //Check Results
             $extCheckers.click(function () {
                 if ($(this).hasClass('checker')) {
@@ -38,14 +48,6 @@
                     $(this).find('input').attr("checked", true);
                 }
             });
-            //$extCheckers.each(function () {
-            //    var $checkbox = $(this).find('input[type="checkbox"]');
-            //    if (defaultDomainExt.indexOf($checkbox.val()) >= 0) {
-            //        $(this).addClass('checker');
-            //        $(this).find('.fa').removeClass('fa-square-o').addClass('fa-check-square-o');
-            //        $(this).find('input').attr("checked", true);
-            //    }
-            //});
         },
         /**
          * Get ext list
@@ -65,6 +67,9 @@
             var _self = this;
             var domainExt = this._getCheckArray();
             var value = $(this._elements.search).val();
+            if (value.length < 3) {
+                return false;
+            }
             $.ajax({
                 url: z.settings.frontendUrl,
                 dataType: "json",
@@ -86,6 +91,7 @@
                         });
                     }
                 });
+                $(_self._elements.ext).slideUp();
             });
         },
         whois: function (domain) {
@@ -102,13 +108,13 @@
                 }
             }).done(function (response) {
                 $(response.data).each(function (index, value) {
-                    if(value.hasOwnProperty('domain') && value.hasOwnProperty('html')){
-                        $(_self._elements.result + '> ul').find('li[data-domain="' + domain+ '"]').replaceWith(value.html);
+                    if (value.hasOwnProperty('domain') && value.hasOwnProperty('html')) {
+                        $(_self._elements.result + '> ul').find('li[data-domain="' + domain + '"]').replaceWith(value.html);
                     }
                 });
             });
         },
-        loadWhois: function(whoisData){
+        loadWhois: function (whoisData) {
             $(this._elements.wrapper).find('#myModal').find('.modal-body').html(atob(whoisData));
         }
     };

@@ -36,7 +36,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
 
         public static function getAjax()
         {
-            $domain = JFactory::getApplication()->input->get('domain');
+            $domain = strtolower(JFactory::getApplication()->input->get('domain'));
             $validExtensions = JFactory::getApplication()->input->get('ext', array('com'), 'ARRAY');
             $parts = explode('.', $domain);
             $keyword = array_shift($parts);
@@ -95,8 +95,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                     $html[] = '<div class="span2 zt-domain-available"><a href="#" onclick="return false;" class="not-available">' . $params->get('taken') . '</a></div>';
                     $html[] = '</div>';
                     $html[] = '</li>';
-                } 
-                    else$html[] = '<div class="span2 zt-domain-price">$30/years</div>';
+                } else
                 {
                     $html[] = '<li class="zt-domain-item">';
                     $html[] = '<div class="row-fluid">';
