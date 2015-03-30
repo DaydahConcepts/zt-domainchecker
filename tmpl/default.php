@@ -80,7 +80,7 @@ $ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd', 'com:9$:checked;ne
              aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel"><?php echo $params->get('modal_title'); ?></h3>
+                <h3 id="myModalLabel"></h3>
             </div>
             <div class="modal-body"></div>
         </div>

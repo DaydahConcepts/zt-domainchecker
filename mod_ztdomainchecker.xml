@@ -33,15 +33,14 @@
                 <field name="check_all_text" type="text" default="Check All Domain Types" label="Check All Text" description="" size="10" />
                 <field name="such_as" type="textarea" default="(Such As: yourdomain.com, yourdomain.org, etc)" label="Such As" description="" filter="raw" />
                 <field name="result" type="text" default="Result" label="Result" description="" size="10" />
-                <field name="modal_title" type="text" default="Modal Header" label="Modal Header" description="" size="10" />
-                <field name="forward_url" type="text" default="index.php/result" label="Forward URL" description="" size="10" />
+                <field name="forward_url" type="text" default="http://example.com/?register=%domain%" label="Forward URL" description="" size="10" />
                 <field name="ltd" type="textarea" default="com:10 USD:checked|net:10 USD:checked|org:10 USD:checked|info:10 USD:checked|us:10 USD:checked|biz:10 USD:checked|asia:10 USD|pro:10 USD|uk:10 USD|co.uk:10 USD|me:10 USD|co:10 USD|vn:10 USD|com.vn:10 USD" label="Ltd" description="" filter="raw" />
                 <field name="whois" type="text" default="Whois" label="Whois Text" description="" size="10" />
                 <field name="checking" type="text" default="Checking..." label="Checking Text" description="" size="10" />
                 <field name="taken" type="text" default="Taken" label="Taken" description="" size="10" />
                 <field name="available" type="text" default="Available" label="Available" description="" size="10" />
                 <field name="title" type="text" default="%domain% is already registered." label="Whois title" description="" size="10" />
-                <field name="register_url" type="text" default="http://example.com/?register=%domain%" label="Register link" description="" size="10" />
+                <field name="year" type="text" default="/year" label="Per year" description="" size="10" />
             </fieldset>
         </fields>
     </config>
