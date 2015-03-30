@@ -40,7 +40,7 @@
                 <field name="checking" type="text" default="Checking..." label="Checking Text" description="" size="10" />
                 <field name="taken" type="text" default="Taken" label="Taken" description="" size="10" />
                 <field name="available" type="text" default="Available" label="Available" description="" size="10" />
-                <field name="title" type="text" default="[ %domain% ] is already registered." label="Whois title" description="" size="10" />                
+                <field name="title" type="text" default="%domain% is already registered." label="Whois title" description="" size="10" />                
             </fieldset>
         </fields>
     </config>
