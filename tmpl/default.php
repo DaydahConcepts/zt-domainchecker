@@ -20,7 +20,7 @@ $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/font-awesome/css/font-aw
 $script[] = '(function (w, $) {';
 $script[] = 'if (typeof w.zo2 === \'undefined\') {';
 $script[] = 'var _zo2 = {';
-$script[] = 'settings: {';
+$script[] = '_settings: {';
 $script[] = 'version: null,';
 $script[] = 'frontendUrl: "' . JUri::root() . '",';
 $script[] = 'backendUrl: "' . rtrim(JUri::root(), '/') . '/administrator' . '",';

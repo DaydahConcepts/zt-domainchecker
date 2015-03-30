@@ -109,7 +109,7 @@
             }
             $(_self._elements.resultWrapper).slideDown();
             $.ajax({
-                url: z.settings.frontendUrl,
+                url: z._settings.frontendUrl,
                 dataType: "json",
                 data: {
                     domain: value,
@@ -185,7 +185,7 @@
         whois: function (domain) {
             var _self = this;
             $.ajax({
-                url: z.settings.frontendUrl,
+                url: z._settings.frontendUrl,
                 dataType: "json",
                 data: {
                     domain: domain,
