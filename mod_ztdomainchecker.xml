@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.0.0" client="site" method="upgrade">
     <name>MODULE_ZTDOMAINCHECKER</name>
-    <creationDate>March 23, 2015</creationDate>
+    <creationDate>March 30, 2015</creationDate>
     <author>ZooTemplate.Com</author>
     <authorEmail>support@zootemplate.com</authorEmail>
     <authorUrl>https://www.zootemplate.com</authorUrl>
