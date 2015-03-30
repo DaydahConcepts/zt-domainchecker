@@ -36,6 +36,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
 
         public static function getAjax()
         {
+            $params = self::getParams();
             $domain = strtolower(JFactory::getApplication()->input->get('domain'));
             $validExtensions = JFactory::getApplication()->input->get('ext', array('com', 'net', 'org'), 'ARRAY');
             $parts = explode('.', $domain);
@@ -58,7 +59,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                 $html[] = '<li class="zt-domain-item" data-domain="' . $domainName . '">';
                 $html[] = '<div class="row-fluid">';
                 $html[] = '<div class="span8 zt-domain-name">' . $domainName . '</div>';
-                $html[] = '<div class="span2 zt-domain-price">Checking...</div>';
+                $html[] = '<div class="span2 zt-domain-price">'.$params->get('checking').'</div>';
                 $html[] = '<div class="span2 zt-domain-available"><div id="circularG"><div id="circularG_1" class="circularG"></div><div id="circularG_2" class="circularG"></div><div id="circularG_3" class="circularG"></div><div id="circularG_4" class="circularG"></div><div id="circularG_5" class="circularG"></div><div id="circularG_6" class="circularG"></div><div id="circularG_7" class="circularG"></div><div id="circularG_8" class="circularG"></div></div></div>';
                 $html[] = '</div>';
                 $html[] = '</li>';
@@ -91,7 +92,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                     $html[] = '<div class="row-fluid">';
                     $html[] = '<div class="span8 zt-domain-name">' . $domain . '</div>';
                     $html[] = '<div class="span2 zt-domain-price"><a href="#myModal" onclick="zo2.domain.loadWhois(\'' . base64_encode(implode('<br/>', $data['rawdata'])) . '\');" role="button" class="zt-whois"';
-                    $html[] = 'data-toggle="modal"><i class="fa-eye fa"></i>Whois</a></div>';
+                    $html[] = 'data-toggle="modal"><i class="fa-eye fa"></i>'. $params->get('whois') .'</a></div>';
                     $html[] = '<div class="span2 zt-domain-available"><a href="#" onclick="return false;" class="not-available">' . $params->get('taken') . '</a></div>';
                     $html[] = '</div>';
                     $html[] = '</li>';

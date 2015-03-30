@@ -28,6 +28,7 @@
         <fields name="params">
             <fieldset name="basic">
                 <field name="label" type="text" default="Get Domain" label="Label" description="" size="10" />
+                <field name="input" type="text" default="Please type your domain here. Ex. hellworld.com" label="Input Text" description="" size="10" />
                 <field name="button" type="text" default="Search" label="Button" description="" size="10" />
                 <field name="check_all_text" type="text" default="Check All Domain Types" label="Check All Text" description="" size="10" />
                 <field name="such_as" type="textarea" default="(Such As: yourdomain.com, yourdomain.org, etc)" label="Such As" description="" filter="raw" />
@@ -35,6 +36,8 @@
                 <field name="modal_title" type="text" default="Modal Header" label="Modal Header" description="" size="10" />
                 <field name="forward_url" type="text" default="index.php/result" label="Forward URL" description="" size="10" />
                 <field name="ltd" type="textarea" default="com:$10;net:$10;org:$10;info:$10;biz:$10;me:$10;mobi:$10;name:$10;tv:$10;ws:$10;pw:$10;us:$10;eu:$10;in:$10;fr:$10;ca:$10;co:$10;bz:$10;de:$10;cc:$10;vn:$10;com.vn:$10;net.vn:$10;org.vn:$10;info.vn:$10;gov.vn:$10;edu.vn:$10;biz.vn:$10;name.vn:$10;pro.vn:$10;health.vn:$10" label="Ltd" description="" filter="raw" />
+                <field name="whois" type="text" default="Whois" label="Whois Text" description="" size="10" />
+                <field name="checking" type="text" default="Checking..." label="Checking Text" description="" size="10" />
                 <field name="taken" type="text" default="Taken" label="Taken" description="" size="10" />
                 <field name="available" type="text" default="Available" label="Available" description="" size="10" />
             </fieldset>
