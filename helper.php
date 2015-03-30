@@ -2,13 +2,13 @@
 
 /**
  * ZT Domain checker
- * 
+ *
  * @package     Joomla
  * @subpackage  Module
  * @version     1.0.0
- * @author      ZooTemplate 
- * @email       support@zootemplate.com 
- * @link        http://www.zootemplate.com 
+ * @author      ZooTemplate
+ * @email       support@zootemplate.com
+ * @link        http://www.zootemplate.com
  * @copyright   Copyright (c) 2015 ZooTemplate
  * @license     GPL v2
  */
@@ -59,7 +59,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                 $html[] = '<div class="row-fluid">';
                 $html[] = '<div class="span8 zt-domain-name">' . $domainName . '</div>';
                 $html[] = '<div class="span2 zt-domain-price">Checking...</div>';
-                $html[] = '<div class="span2 zt-domain-available"><i class="fa fa-spinner fa-spin"></i></div>';
+                $html[] = '<div class="span2 zt-domain-available"><div id="circularG"><div id="circularG_1" class="circularG"></div><div id="circularG_2" class="circularG"></div><div id="circularG_3" class="circularG"></div><div id="circularG_4" class="circularG"></div><div id="circularG_5" class="circularG"></div><div id="circularG_6" class="circularG"></div><div id="circularG_7" class="circularG"></div><div id="circularG_8" class="circularG"></div></div></div>';
                 $html[] = '</div>';
                 $html[] = '</li>';
             }
