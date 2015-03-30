@@ -114,7 +114,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
         public static function getLtds()
         {
             $params = self::getParams();
-            $ltds = $params->get('ltd', 'com;10 USD;checked:net;10 USD;checked:org;10 USD;checked:info;10 USD;checked:us;10 USD;checked:biz;10 USD;checked:asia;10 USD:pro;10 USD:uk;10 USD:co.uk;10 USD:me;10 USD:co;10 USD:vn;10 USD:com.vn;10 USD');
+            $ltds = $params->get('ltd', 'com:10 USD:checked|net:10 USD:checked|org:10 USD:checked|info:10 USD:checked|us:10 USD:checked|biz:10 USD:checked|asia:10 USD|pro:10 USD|uk:10 USD|co.uk:10 USD|me:10 USD|co:10 USD|vn:10 USD|com.vn:10 USD');
             $extensions = explode('|', $ltds);
             foreach ($extensions as $extension)
             {
