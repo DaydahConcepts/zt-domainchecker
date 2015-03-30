@@ -33,7 +33,7 @@ $script[] = '}';
 $script[] = '})(window, jQuery);';
 $doc->addScriptDeclaration(implode(PHP_EOL, $script));
 
-$ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd', 'com:9$:checked;net:8$:checked;org:8$:checked;us:8$:checked;biz:8$;'));
+$ltds = ModZtdomaincheckerHelper::getLtds();
 ?>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/zo2.ajax.js"></script>
 <script type="text/javascript" src="modules/mod_ztdomainchecker/assets/js/ztdomainchecker.js"></script>
