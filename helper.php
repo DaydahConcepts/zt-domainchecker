@@ -91,7 +91,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                     $html[] = '<li class="zt-domain-item">';
                     $html[] = '<div class="row-fluid">';
                     $html[] = '<div class="span8 zt-domain-name">' . $domain . '</div>';
-                    $html[] = '<div class="span2 zt-domain-price"><a href="#myModal" onclick="zo2.domain.loadWhois(\'' . base64_encode(implode('<br/>', $data['rawdata'])) . '\');" role="button" class="zt-whois"';
+                    $html[] = '<div class="span2 zt-domain-price"><a href="#myModal" onclick="zo2.domain.loadWhois(\'' . base64_encode(implode('<br/>', $data['rawdata'])) . '\', \''. base64_encode(str_replace('%domain%', $domain, $params->get('title'))) . '\');" role="button" class="zt-whois"';
                     $html[] = 'data-toggle="modal"><i class="fa-eye fa"></i>'. $params->get('whois') .'</a></div>';
                     $html[] = '<div class="span2 zt-domain-available"><a href="#" onclick="return false;" class="not-available">' . $params->get('taken') . '</a></div>';
                     $html[] = '</div>';

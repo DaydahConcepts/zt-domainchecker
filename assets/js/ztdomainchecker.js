@@ -199,8 +199,9 @@
          * @param {type} whoisData
          * @returns {undefined}
          */
-        loadWhois: function (whoisData) {
+        loadWhois: function (whoisData, titleData) {
             $(this._elements.wrapper).find('#myModal').find('.modal-body').html(atob(whoisData));
+            $(this._elements.wrapper).find('#myModalLabel').html(atob(titleData));
         }
     };
 
