@@ -101,7 +101,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                     $html[] = '<li class="zt-domain-item">';
                     $html[] = '<div class="row-fluid">';
                     $html[] = '<div class="span8 zt-domain-name">' . $domain . '</div>';
-                    $html[] = '<div class="span2 zt-domain-price">' . self::getPrice($domain) . '/' . $params->get('year') . '</div>';
+                    $html[] = '<div class="span2 zt-domain-price">' . self::getPrice($domain) . $params->get('year') . '</div>';
                     $html[] = '<div class="span2 zt-domain-available"><a target="_blank" href="' . str_replace('%domain%', $domain, $params->get('forward_url')) . '">' . $params->get('available') . '</a></div>';
                     $html[] = '</div>';
                     $html[] = '</li>';
