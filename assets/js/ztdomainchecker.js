@@ -40,6 +40,14 @@
                     $(_self._elements.search).css('border', '1px solid red');
                 }
             });
+            
+            // Enter key handle
+            $(this._elements.search).keypress(function (event) {
+                if (event.which === 13) {
+                    _self.check();
+                    event.preventDefault();
+                }
+            });
 
             //Check Results
             $extCheckers.click(function () {
@@ -127,7 +135,7 @@
          * Close all
          * @returns {undefined}
          */
-        close: function(){
+        close: function () {
             $(this._elements.resultWrapper).slideUp();
             $(this._elements.ext).slideUp();
         },
