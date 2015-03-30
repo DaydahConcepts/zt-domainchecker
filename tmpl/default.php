@@ -49,8 +49,8 @@ $ltds = ModZtdomaincheckerHelper::getLtds($params->get('ltd', 'com:9$:checked;ne
     </div>
     <div id="zt-domain-ext">
         <div class="zt-domain-ext-title clearfix">
-            <p class="pull-left"><span onclick="zo2.domain.checkAll();"><?php echo $params->get('check_all_text'); ?></span> <?php echo $params->get('such_as'); ?></p>
-            <p class="pull-right close-results"><i onclick="zo2.domain.uncheckAll();" class="fa fa-times"></i></p>
+            <p class="pull-left"><span data-label="Uncheck All Domain Types" data-check-all="true" onclick="zo2.domain.toggleExt(this);"><?php echo $params->get('check_all_text'); ?></span> <?php echo $params->get('such_as'); ?></p>
+            <p class="pull-right close-results"><i onclick="zo2.domain.close();" class="fa fa-times"></i></p>
         </div>
         <ul class="clearfix">
             <?php foreach($ltds as $listExt) { ?>

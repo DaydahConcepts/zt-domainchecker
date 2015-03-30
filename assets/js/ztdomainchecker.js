@@ -121,8 +121,31 @@
                         });
                     }
                 });
-                $(_self._elements.ext).slideUp();
             });
+        },
+        /**
+         * Close all
+         * @returns {undefined}
+         */
+        close: function(){
+            $(this._elements.resultWrapper).slideUp();
+            $(this._elements.ext).slideUp();
+        },
+        /**
+         * Toggle extensions select
+         * @param {type} thisPtr
+         * @returns {undefined}
+         */
+        toggleExt: function (thisPtr) {
+            var label = $(thisPtr).html();
+            if ($(thisPtr).data('check-all') === true) {
+                this.checkAll();
+            } else {
+                this.uncheckAll();
+            }
+            $(thisPtr).data('check-all', !$(thisPtr).data('check-all'));
+            $(thisPtr).html($(thisPtr).data('label'));
+            $(thisPtr).data('label', label);
         },
         /**
          * Check all checkbox
