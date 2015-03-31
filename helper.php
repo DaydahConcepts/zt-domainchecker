@@ -57,10 +57,10 @@ if (!class_exists('ModZtdomaincheckerHelper'))
             foreach ($domains as $domainName)
             {
                 $html[] = '<li class="zt-domain-item" data-domain="' . $domainName . '">';
-                $html[] = '<div class="row-fluid">';
-                $html[] = '<div class="span8 zt-domain-name">' . $domainName . '</div>';
-                $html[] = '<div class="span2 zt-domain-price">' . $params->get('checking') . '</div>';
-                $html[] = '<div class="span2 zt-domain-available"><div id="circularG"><div id="circularG_1" class="circularG"></div><div id="circularG_2" class="circularG"></div><div id="circularG_3" class="circularG"></div><div id="circularG_4" class="circularG"></div><div id="circularG_5" class="circularG"></div><div id="circularG_6" class="circularG"></div><div id="circularG_7" class="circularG"></div><div id="circularG_8" class="circularG"></div></div></div>';
+                $html[] = '<div class="row">';
+                $html[] = '<div class="col-sm-8 col-md-8 zt-domain-name">' . $domainName . '</div>';
+                $html[] = '<div class="col-sm-2 col-md-2 zt-domain-price">' . $params->get('checking') . '</div>';
+                $html[] = '<div class="col-sm-2 col-md-2 zt-domain-available"><div id="circularG"><div id="circularG_1" class="circularG"></div><div id="circularG_2" class="circularG"></div><div id="circularG_3" class="circularG"></div><div id="circularG_4" class="circularG"></div><div id="circularG_5" class="circularG"></div><div id="circularG_6" class="circularG"></div><div id="circularG_7" class="circularG"></div><div id="circularG_8" class="circularG"></div></div></div>';
                 $html[] = '</div>';
                 $html[] = '</li>';
             }
