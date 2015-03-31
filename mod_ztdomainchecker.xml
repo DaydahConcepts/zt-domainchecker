@@ -20,6 +20,7 @@
         <filename>mod_ztdomainchecker.xml</filename>
         <filename>helper.php</filename>
         <filename>index.html</filename>
+        <folder>assets</folder>
         <folder>libraries</folder>
         <folder>tmpl</folder>
     </files>
