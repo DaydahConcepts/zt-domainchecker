@@ -116,7 +116,8 @@
                     option: 'com_ajax',
                     module: 'ztdomainchecker',
                     format: 'json',
-                    ext: domainExt
+                    ext: domainExt,
+                    Itemid: z._settings.itemId
                 }
             }).done(function (response) {
                 $(response.data).each(function (index, value) {
@@ -192,7 +193,8 @@
                     option: 'com_ajax',
                     module: 'ztdomainchecker',
                     method: "whois",
-                    format: 'json'
+                    format: 'json',
+                    Itemid: z._settings.itemId
                 }
             }).done(function (response) {
                 $(response.data).each(function (index, value) {

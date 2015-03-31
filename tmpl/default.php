@@ -17,20 +17,28 @@ $doc = JFactory::getDocument();
 $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/css/default.css');
 $doc->addStyleSheet('modules/mod_ztdomainchecker/assets/font-awesome/css/font-awesome.min.css');
 /* Add Zo2 Javascript Framework normally */
+$script[] = '';
 $script[] = '(function (w, $) {';
-$script[] = 'if (typeof w.zo2 === \'undefined\') {';
 $script[] = 'var _zo2 = {';
 $script[] = '_settings: {';
 $script[] = 'version: null,';
 $script[] = 'frontendUrl: "' . JUri::root() . '",';
 $script[] = 'backendUrl: "' . rtrim(JUri::root(), '/') . '/administrator' . '",';
-$script[] = 'token: "' . JSession::getFormToken() . '"';
+$script[] = 'token: "' . JSession::getFormToken() . '",';
+$script[] = 'itemId: ' . JFactory::getApplication()->getMenu()->getActive()->id;
 $script[] = '},';
 $script[] = 'jQuery: $';
 $script[] = '};';
+$script[] = 'if (typeof(w.zo2) === \'undefined\') {';
 $script[] = 'w.zo2 = _zo2;';
 $script[] = '}';
+$script[] = 'else';
+$script[] = '{';
+$script[] = 'w.zo2._settings = $.extend({}, w.zo2._settings, _zo2._settings);';
+$script[] = '}';
 $script[] = '})(window, jQuery);';
+$script[] = '';
+
 $doc->addScriptDeclaration(implode(PHP_EOL, $script));
 
 $ltds = ModZtdomaincheckerHelper::getLtds();
