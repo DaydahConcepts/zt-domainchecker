@@ -89,20 +89,20 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                 if ($data['regrinfo']['registered'] == 'yes')
                 {
                     $html[] = '<li class="zt-domain-item">';
-                    $html[] = '<div class="row-fluid">';
-                    $html[] = '<div class="span8 zt-domain-name">' . $domain . '</div>';
-                    $html[] = '<div class="span2 zt-domain-price"><a href="#myModal" onclick="zo2.domain.loadWhois(\'' . base64_encode(implode('<br/>', $data['rawdata'])) . '\', \'' . base64_encode(str_replace('%domain%', $domain, $params->get('title'))) . '\');" role="button" class="zt-whois"';
+                    $html[] = '<div class="row">';
+                    $html[] = '<div class="col-sm-8 col-md-8 zt-domain-name">' . $domain . '</div>';
+                    $html[] = '<div class="col-sm-2 col-md-2 zt-domain-price"><a href="#myModal" onclick="zo2.domain.loadWhois(\'' . base64_encode(implode('<br/>', $data['rawdata'])) . '\', \'' . base64_encode(str_replace('%domain%', $domain, $params->get('title'))) . '\');" role="button" class="zt-whois"';
                     $html[] = 'data-toggle="modal"><i class="fa-eye fa"></i>' . $params->get('whois') . '</a></div>';
-                    $html[] = '<div class="span2 zt-domain-available"><a href="#" onclick="return false;" class="not-available">' . $params->get('taken') . '</a></div>';
+                    $html[] = '<div class="col-sm-2 col-md-2 zt-domain-available"><a href="#" onclick="return false;" class="not-available">' . $params->get('taken') . '</a></div>';
                     $html[] = '</div>';
                     $html[] = '</li>';
                 } else
                 {
                     $html[] = '<li class="zt-domain-item">';
-                    $html[] = '<div class="row-fluid">';
-                    $html[] = '<div class="span8 zt-domain-name">' . $domain . '</div>';
-                    $html[] = '<div class="span2 zt-domain-price">' . self::getPrice($domain) . $params->get('year') . '</div>';
-                    $html[] = '<div class="span2 zt-domain-available"><a target="_blank" href="' . str_replace('%domain%', $domain, $params->get('forward_url')) . '">' . $params->get('available') . '</a></div>';
+                    $html[] = '<div class="row">';
+                    $html[] = '<div class="col-sm-8 col-md-8 zt-domain-name">' . $domain . '</div>';
+                    $html[] = '<div class="col-sm-2 col-md-2 zt-domain-price">' . self::getPrice($domain) . $params->get('year') . '</div>';
+                    $html[] = '<div class="col-sm-2 col-md-2 zt-domain-available"><a target="_blank" href="' . str_replace('%domain%', $domain, $params->get('forward_url')) . '">' . $params->get('available') . '</a></div>';
                     $html[] = '</div>';
                     $html[] = '</li>';
                 }

@@ -41,7 +41,7 @@ $ltds = ModZtdomaincheckerHelper::getLtds();
     <div class="row">
         <label class="search-label col-sm-2 col-md-2"><?php echo $params->get('label'); ?></label>
 
-        <div class="search col-sm-10 col-md-10">
+        <div class="zt-domain-search col-sm-10 col-md-10">
             <input type="text" id="zt-domain-name" class="form-control" maxlength="64" placeholder="<?php echo $params->get('input'); ?>"/>
             <button type="submit" class="btn btn-search" onClick="zo2.domain.check();"><?php echo $params->get('button'); ?> <i
                     class="fa fa-angle-right"></i></button>
