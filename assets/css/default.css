@@ -59,6 +59,7 @@
     text-shadow: none;
     font-size: 14px;
     color: #fff;
+    padding: 0;
 }
 .zt-domain-wrap .search .btn-search .fa {
     font-size: 17px;
