@@ -98,7 +98,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                     $html[] = '</li>';
                 } else
                 {
-                    $html[] = '<li class="zt-domain-item">';
+                    $html[] = '<li class="zt-domain-item ">';
                     $html[] = '<div class="row">';
                     $html[] = '<div class="col-sm-8 col-md-8 zt-domain-name">' . $domain . '</div>';
                     $html[] = '<div class="col-sm-2 col-md-2 zt-domain-price">' . self::getPrice($domain) . $params->get('year') . '</div>';

@@ -33,10 +33,10 @@
     font-size: 19px;
     line-height: 47px;
 }
-.zt-domain-wrap .search input[type="text"],
-.zt-domain-wrap .search input[type="password"],
-.zt-domain-wrap .search input[type="tel"],
-.zt-domain-wrap .search input[type="email"] {
+.zt-domain-wrap .zt-domain-search input[type="text"],
+.zt-domain-wrap .zt-domain-search input[type="password"],
+.zt-domain-wrap .zt-domain-search input[type="tel"],
+.zt-domain-wrap .zt-domain-search input[type="email"] {
     height: 47px;
     width: calc(100% - 200px);
     border: 1px solid #e0e0e0;
@@ -46,7 +46,7 @@
     float: left;
     box-shadow: none;
 }
-.zt-domain-wrap .search .btn-search {
+.zt-domain-wrap .zt-domain-search .btn-search {
     width: 182px;
     height: 47px;
     text-align: center;
@@ -61,7 +61,7 @@
     color: #fff;
     padding: 0;
 }
-.zt-domain-wrap .search .btn-search .fa {
+.zt-domain-wrap .zt-domain-search .btn-search .fa {
     font-size: 17px;
     padding-left: 10px;
 }
