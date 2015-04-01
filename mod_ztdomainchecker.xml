@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.0.0" client="site" method="upgrade">
     <name>MODULE_ZTDOMAINCHECKER</name>
-    <creationDate>March 30, 2015</creationDate>
+    <creationDate>Apr 01, 2015</creationDate>
     <author>ZooTemplate.Com</author>
     <authorEmail>support@zootemplate.com</authorEmail>
     <authorUrl>https://www.zootemplate.com</authorUrl>
     <copyright>Copyright (c) 2008 - 2015 ZooTemplate.com</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GPLv2 or later</license>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>MODULE_ZT_DOMAINCHECKER_DESCRIPTION</description>
 
     <languages folder="language">
