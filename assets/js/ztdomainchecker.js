@@ -100,21 +100,31 @@
             return retVal;
         },
         /**
-         * Check domain ajax
+         * Check domain
          * @returns {Boolean}
          */
         check: function () {
             var _self = this;
+            /* Get domain extesion list */
             var domainExt = this._getCheckArray();
             var value = $(this._elements.search).val();
+            /* Reject domain search, domain is too short */
             if (value.length < 3) {
                 return false;
             }
+            /* Add default domain extension */
+            if(domainExt.length === 0){
+                domainExt = ['com', 'net', 'org'];
+            }
             $(_self._elements.resultWrapper).slideDown();
+            /* Flush current domain list */
             _self.domainList = [];
+            /* Get main domain */
             var mainName = value.substr(0, value.indexOf('.') >= 0?value.indexOf('.'):value.length);
+            /* Flush result container */
             var $result = $(_self._elements.result + '> ul');
             $result.html('');
+            /* Append domain items */
             $.each(domainExt, function(index, value){
                 var domain = mainName + '.' + value;
                 var $emptyItem = $(_self._elements.result).find('#zt-domain-empty-item > li').clone();
@@ -174,7 +184,6 @@
         },
         /**
          * Whois ajax
-         * @param {type} domain
          * @returns {undefined}
          */
         whois: function () {
@@ -206,6 +215,7 @@
         /**
          * Load each whois field
          * @param {type} whoisData
+         * @param {type} titleData
          * @returns {undefined}
          */
         loadWhois: function (whoisData, titleData) {
