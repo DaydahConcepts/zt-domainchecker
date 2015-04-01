@@ -34,39 +34,6 @@ if (!class_exists('ModZtdomaincheckerHelper'))
             return new JRegistry($module->params);
         }
 
-        public static function getAjax()
-        {
-            $params = self::getParams();
-            $domain = strtolower(JFactory::getApplication()->input->get('domain'));
-            $validExtensions = JFactory::getApplication()->input->get('ext', array('com', 'net', 'org'), 'ARRAY');
-            $parts = explode('.', $domain);
-            $keyword = array_shift($parts);
-            $extension = implode('.', $parts);
-            // Have extension
-            if ($extension != '')
-            {
-                if (!in_array($extension, $validExtensions))
-                {
-                    $validExtensions[] = $extension;
-                }
-            }
-            foreach ($validExtensions as $extension)
-            {
-                $domains[] = $keyword . '.' . $extension;
-            }
-            foreach ($domains as $domainName)
-            {
-                $html[] = '<li class="zt-domain-item" data-domain="' . $domainName . '">';
-                $html[] = '<div class="row">';
-                $html[] = '<div class="col-sm-8 col-md-8 zt-domain-name">' . $domainName . '</div>';
-                $html[] = '<div class="col-sm-2 col-md-2 zt-domain-price">' . $params->get('checking') . '</div>';
-                $html[] = '<div class="col-sm-2 col-md-2 zt-domain-available"><div id="circularG"><div id="circularG_1" class="circularG"></div><div id="circularG_2" class="circularG"></div><div id="circularG_3" class="circularG"></div><div id="circularG_4" class="circularG"></div><div id="circularG_5" class="circularG"></div><div id="circularG_6" class="circularG"></div><div id="circularG_7" class="circularG"></div><div id="circularG_8" class="circularG"></div></div></div>';
-                $html[] = '</div>';
-                $html[] = '</li>';
-            }
-            return array('domain' => array_reverse($domains), 'html' => implode(PHP_EOL, $html));
-        }
-
         public static function whoisAjax()
         {
             $params = self::getParams();

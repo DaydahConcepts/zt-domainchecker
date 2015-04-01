@@ -61,19 +61,25 @@ $ltds = ModZtdomaincheckerHelper::getLtds();
             <p class="pull-right close-results"><i onclick="zo2.domain.close();" class="fa fa-times"></i></p>
         </div>
         <ul class="clearfix">
-            <?php foreach($ltds as $listExt) { ?>
+            <?php foreach ($ltds as $listExt)
+            {
+                ?>
                 <li class="pull-left">
-                <span class="check<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? ' checker' : ''; ?>">
-                    <?php if(isset($listExt->checked) && $listExt->checked == 1) { ?>
-                        <i class="fa fa-check-square-o"></i>
-                    <?php } else { ?>
-                        <i class="fa-square-o fa"></i>
-                    <?php } ?>
-                    <input type="checkbox" name="check-domain" id="dot_<?php echo $listExt->name; ?>" value="<?php echo $listExt->name; ?>" class="SCheckbox"<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? 'checked="checked"' : ''; ?>>
-                    <label for="dot_<?php echo $listExt->name; ?>">.<?php echo $listExt->name; ?></label>
-                </span>
+                    <span class="check<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? ' checker' : ''; ?>">
+                        <?php if (isset($listExt->checked) && $listExt->checked == 1)
+                        {
+                            ?>
+                            <i class="fa fa-check-square-o"></i>
+                        <?php } else
+                        {
+                            ?>
+                            <i class="fa-square-o fa"></i>
+    <?php } ?>
+                        <input type="checkbox" name="check-domain" id="dot_<?php echo $listExt->name; ?>" value="<?php echo $listExt->name; ?>" class="SCheckbox"<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? 'checked="checked"' : ''; ?>>
+                        <label for="dot_<?php echo $listExt->name; ?>">.<?php echo $listExt->name; ?></label>
+                    </span>
                 </li>
-            <?php } ?>
+<?php } ?>
         </ul>
     </div>
     <div class="zt-domain-results" style="display:none;">
@@ -81,6 +87,15 @@ $ltds = ModZtdomaincheckerHelper::getLtds();
             <h2 class="close-results"><?php echo $params->get('result'); ?></h2>
         </div>
         <div class="zt-domain-list-results">
+            <div id="zt-domain-empty-item"  style="display:none;"> 
+                <li class="zt-domain-item">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-8 zt-domain-name"></div>
+                        <div class="col-sm-2 col-md-2 zt-domain-price"><?php echo $params->get('checking') ?></div>
+                        <div class="col-sm-2 col-md-2 zt-domain-available"><div id="circularG"><div id="circularG_1" class="circularG"></div><div id="circularG_2" class="circularG"></div><div id="circularG_3" class="circularG"></div><div id="circularG_4" class="circularG"></div><div id="circularG_5" class="circularG"></div><div id="circularG_6" class="circularG"></div><div id="circularG_7" class="circularG"></div><div id="circularG_8" class="circularG"></div></div></div>
+                    </div>
+            </div>
+            </li>
             <ul></ul>
         </div>
 

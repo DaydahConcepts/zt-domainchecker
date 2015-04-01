@@ -18,7 +18,9 @@
             search: "#zt-domain-name",
             result: ".zt-domain-list-results",
             ext: "#zt-domain-ext",
-            resultWrapper: '.zt-domain-results'
+            resultWrapper: '.zt-domain-results',
+            item: "#zt-domain-empty-item",
+            name: ".zt-domain-name"
         },
         domainList: [],
         /**
@@ -109,28 +111,20 @@
                 return false;
             }
             $(_self._elements.resultWrapper).slideDown();
-            $.ajax({
-                url: z._settings.frontendUrl,
-                dataType: "json",
-                data: {
-                    domain: value,
-                    option: 'com_ajax',
-                    module: 'ztdomainchecker',
-                    format: 'json',
-                    ext: domainExt,
-                    Itemid: z._settings.itemId
-                }
-            }).done(function (response) {
-                $(response.data).each(function (index, value) {
-                    if (value.hasOwnProperty('html')) {
-                        $(_self._elements.result + '> ul').html(value.html);
-                    }
-                    if (value.hasOwnProperty('domain')) {
-                        _self.domainList = value.domain;
-                    }
-                    _self.whois();
-                });                
+            _self.domainList = [];
+            var mainName = value.substr(0, value.indexOf('.') >= 0?value.indexOf('.'):value.length);
+            var $result = $(_self._elements.result + '> ul');
+            $result.html('');
+            $.each(domainExt, function(index, value){
+                var domain = mainName + '.' + value;
+                var $emptyItem = $(_self._elements.result).find('#zt-domain-empty-item > li').clone();
+                $emptyItem.attr('data-domain', domain);
+                $emptyItem.find(_self._elements.name).html(domain);
+                _self.domainList.push(domain);
+                $emptyItem.appendTo($result);
             });
+            _self.domainList.reverse();
+            _self.whois();
         },
         /**
          * Close all
