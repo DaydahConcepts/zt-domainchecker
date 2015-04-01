@@ -64,7 +64,7 @@ if (!class_exists('ModZtdomaincheckerHelper'))
                 $html[] = '</div>';
                 $html[] = '</li>';
             }
-            return array('domain' => $domains, 'html' => implode(PHP_EOL, $html));
+            return array('domain' => array_reverse($domains), 'html' => implode(PHP_EOL, $html));
         }
 
         public static function whoisAjax()

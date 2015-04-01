@@ -20,6 +20,7 @@
             ext: "#zt-domain-ext",
             resultWrapper: '.zt-domain-results'
         },
+        domainList: [],
         /**
          * Init function
          * @returns {undefined}
@@ -125,11 +126,10 @@
                         $(_self._elements.result + '> ul').html(value.html);
                     }
                     if (value.hasOwnProperty('domain')) {
-                        $(value.domain).each(function (cIndex, cValue) {
-                            _self.whois(cValue);
-                        });
+                        _self.domainList = value.domain;
                     }
-                });
+                    _self.whois();
+                });                
             });
         },
         /**
@@ -183,8 +183,12 @@
          * @param {type} domain
          * @returns {undefined}
          */
-        whois: function (domain) {
+        whois: function () {
             var _self = this;
+            if(_self.domainList.length <= 0){
+                return false;
+            }
+            var domain = _self.domainList.pop();
             $.ajax({
                 url: z._settings.frontendUrl,
                 dataType: "json",
@@ -201,6 +205,7 @@
                     if (value.hasOwnProperty('domain') && value.hasOwnProperty('html')) {
                         $(_self._elements.result + '> ul').find('li[data-domain="' + domain + '"]').replaceWith(value.html);
                     }
+                    _self.whois();
                 });
             });
         },
