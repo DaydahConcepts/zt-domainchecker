@@ -11,8 +11,8 @@
     <description>MODULE_ZT_DOMAINCHECKER_DESCRIPTION</description>
 
     <languages folder="language">
-        <language tag="en-GB">en-GB/en-GB.mod_ztdomainchecker.ini</language>
-        <language tag="en-GB">en-GB/en-GB.mod_ztdomainchecker.sys.ini</language>
+        <language tag="en-GB">languages/en-GB/en-GB.mod_ztdomainchecker.ini</language>
+        <language tag="en-GB">languages/en-GB/en-GB.mod_ztdomainchecker.sys.ini</language>
     </languages>
 
     <files>
