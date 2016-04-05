@@ -30,8 +30,25 @@ if (!class_exists('ModZtdomaincheckerHelper'))
         {
             jimport('joomla.application.module.helper');
             jimport('joomla.html.parameter');
-            $module = JModuleHelper::getModule('mod_ztdomainchecker');
-            return new JRegistry($module->params);
+
+            //this is for multi domain checker module on a website
+            $module_id = JFactory::getApplication()->input->getInt('moduleId',0);
+            if ($module_id) {
+                $db = JFactory::getDBO();
+                $query = $db->getQuery(true);
+                $query->select('params');
+                $query->from('#__modules');
+                $query->where('id='.$module_id.' AND  published=1');
+                $db->setQuery($query);
+                $params = $db->loadResult();
+                return new JRegistry($params);
+
+            } else
+            {
+                $module = JModuleHelper::getModule('mod_ztdomainchecker');
+                return new JRegistry($module->params);
+            }
+
         }
 
         public static function whoisAjax()

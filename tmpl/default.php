@@ -23,6 +23,7 @@ $script[] = 'var _zo2 = {';
 $script[] = '_settings: {';
 $script[] = 'version: null,';
 $script[] = 'frontendUrl: "' . JUri::root() . '",';
+$script[] = 'moduleId: ' . $module->id . ',' ;
 $script[] = 'backendUrl: "' . rtrim(JUri::root(), '/') . '/administrator' . '",';
 $script[] = 'token: "' . JSession::getFormToken() . '",';
 $script[] = 'itemId: ' . JFactory::getApplication()->getMenu()->getActive()->id;
@@ -74,12 +75,12 @@ $ltds = ModZtdomaincheckerHelper::getLtds();
                         {
                             ?>
                             <i class="fa-square-o fa"></i>
-    <?php } ?>
+                        <?php } ?>
                         <input type="checkbox" name="check-domain" id="dot_<?php echo $listExt->name; ?>" value="<?php echo $listExt->name; ?>" class="SCheckbox"<?php echo (isset($listExt->checked) && $listExt->checked == 1) ? 'checked="checked"' : ''; ?>>
                         <label for="dot_<?php echo $listExt->name; ?>">.<?php echo $listExt->name; ?></label>
                     </span>
                 </li>
-<?php } ?>
+            <?php } ?>
         </ul>
     </div>
     <div class="zt-domain-results" style="display:none;">
@@ -87,7 +88,7 @@ $ltds = ModZtdomaincheckerHelper::getLtds();
             <h2 class="close-results"><?php echo $params->get('result'); ?></h2>
         </div>
         <div class="zt-domain-list-results">
-            <div id="zt-domain-empty-item"  style="display:none;"> 
+            <div id="zt-domain-empty-item"  style="display:none;">
                 <li class="zt-domain-item">
                     <div class="row">
                         <div class="col-sm-8 col-md-8 zt-domain-name"></div>

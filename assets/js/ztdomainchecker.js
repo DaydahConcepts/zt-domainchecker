@@ -43,7 +43,7 @@
                     $(_self._elements.search).css('border', '1px solid red');
                 }
             });
-            
+
             // Enter key handle
             $(this._elements.search).keypress(function (event) {
                 if (event.which === 13) {
@@ -201,6 +201,7 @@
                     module: 'ztdomainchecker',
                     method: "whois",
                     format: 'json',
+                    moduleId: z._settings.moduleId,
                     Itemid: z._settings.itemId
                 }
             }).done(function (response) {
