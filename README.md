@@ -19,7 +19,7 @@ This module provides two features
 * Forward URL: index.php/result
 
 
-Change Logs
+## Change Logs
 
 ------------ 1.0.3 Release [Apr 07, 2016] ------------
 
