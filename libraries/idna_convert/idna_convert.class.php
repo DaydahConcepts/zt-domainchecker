@@ -50,6 +50,8 @@
  * @copyright 2004-2011 phlyLabs Berlin, http://phlylabs.de
  * @version 0.8.0 2011-03-11
  */
+if (!class_exists('idna_convert')) {
+
 class idna_convert
 {
     // NP See below
@@ -1601,5 +1603,7 @@ class idna_convert
                     ,0x361   => 234, 0x345   => 240
                     )
             );
+}
+
 }
 ?>
