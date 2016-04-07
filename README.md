@@ -21,7 +21,7 @@ This module provides two features
 
 ## Change Logs
 
------------- 1.0.3 Release [Apr 07, 2016] ------------
+------------ 1.0.3 Release [Apr 07, 2016] -----------
 
     Fixed forward url error
 
