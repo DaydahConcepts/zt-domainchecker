@@ -17,3 +17,12 @@ This module provides two features
 * Check All Text: Check All Domain Types
 * Result: Result 
 * Forward URL: index.php/result
+
+
+Change Logs
+
+------------ 1.0.3 Release [Apr 07, 2016] ------------
+
+    Fixed forward url error
+
+    Fixed Cannot redeclare class idna_convert error
